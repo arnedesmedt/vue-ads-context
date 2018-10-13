@@ -4,7 +4,6 @@
     >
         <div
             ref="button"
-            class=""
             @click.stop="toggle"
             @mouseenter="toggle"
             @mouseleave="toggle"
@@ -74,11 +73,9 @@ export default {
 
     computed: {
         contextClasses () {
-            let classes = {
+            return {
                 invisible: this.disable || !this.isVisible,
             };
-
-            return classes;
         },
 
         contextStyles () {
@@ -117,12 +114,10 @@ export default {
                 top -= this.context.height;
             }
 
-            let styles = {
+            return {
                 left: left + 'px',
                 top: top + 'px',
             };
-
-            return styles;
         },
     },
 
@@ -152,11 +147,11 @@ export default {
         },
 
         calculateDimensions () {
-            let buttonRect = this.$refs.button.getBoundingClientRect();
+            let buttonRect = this.$refs.button.childNodes[0].getBoundingClientRect();
             this.button.width = buttonRect.width;
             this.button.height = buttonRect.height;
 
-            let contextRect = this.$refs.context.getBoundingClientRect();
+            let contextRect = this.$refs.context.childNodes[0].getBoundingClientRect();
             this.context.width = contextRect.width;
             this.context.height = contextRect.height;
         },
