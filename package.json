@@ -13,7 +13,6 @@
     "postversion": "git push && git push --tags"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "*",
     "vue": "^2.5.17"
   },
   "devDependencies": {
@@ -36,11 +35,7 @@
     "vue-template-compiler": "^2.5.17"
   },
   "description": "A Vue context popup component.",
-  "keywords": [
-    "vue",
-    "context",
-    "component"
-  ],
+  "main": "./dist/vue-ads-context.common.js",
   "files": [
     "/dist"
   ],
@@ -54,5 +49,9 @@
   "homepage": "https://github.com/arnedesmedt/vue-ads-context",
   "author": "Arne De Smedt <arnedesmdt@gmail.com> (https://twitter.com/ArneSmedt)",
   "license": "MIT",
-  "main": "./dist/vue-ads-context.common.js"
+  "keywords": [
+    "vue",
+    "context",
+    "component"
+  ]
 }
