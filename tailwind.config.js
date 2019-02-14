@@ -913,7 +913,7 @@ module.exports = {
   */
 
     options: {
-        prefix: '',
+        prefix: 'vue-ads-',
         important: false,
         separator: ':',
     },

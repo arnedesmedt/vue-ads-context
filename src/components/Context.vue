@@ -1,20 +1,23 @@
 <template>
     <div
-        class="relative"
+        class="vue-ads-relative"
     >
         <div
             ref="button"
-            @click.stop="toggle"
-            @mouseenter="toggle"
-            @mouseleave="toggle"
+            @click.stop="click"
+            @mouseenter.stop="toggle"
+            @mouseleave.stop="toggle"
         >
             <slot name="button"/>
         </div>
         <div
             ref="context"
+            @click.stop="clickContext"
+            @mouseenter.stop="toggle"
+            @mouseleave.stop="toggle"
             :class="contextClasses"
             :style="contextStyles"
-            class="absolute z-50"
+            class="vue-ads-absolute vue-ads-z-50"
         >
             <slot name="context"/>
         </div>
@@ -74,7 +77,7 @@ export default {
     computed: {
         contextClasses () {
             return {
-                invisible: this.disable || !this.isVisible,
+                'vue-ads-invisible': this.disable || !this.isVisible,
             };
         },
 
@@ -126,24 +129,30 @@ export default {
     },
 
     methods: {
-        toggle (event) {
-            if (
-                (event.type === 'click' && this.toggleOnHover) ||
-                (event.type === 'mouseenter' && !this.toggleOnHover) ||
-                (event.type === 'mouseleave' && !this.toggleOnHover)
-            ) {
+        toggle () {
+            if (!this.toggleOnHover) {
                 return;
             }
 
-            if (event.type === 'click' && !this.toggleOnHover) {
-                if (this.isVisible) {
-                    document.body.removeEventListener('click', this.toggle);
-                } else {
-                    document.body.addEventListener('click', this.toggle);
-                }
+            this.isVisible = !this.isVisible;
+        },
+
+        click () {
+            if (this.toggleOnHover) {
+                return;
+            }
+
+            if (this.isVisible) {
+                document.body.removeEventListener('click', this.click);
+            } else {
+                document.body.addEventListener('click', this.click);
             }
 
             this.isVisible = !this.isVisible;
+        },
+
+        clickContext () {
+
         },
 
         calculateDimensions () {
