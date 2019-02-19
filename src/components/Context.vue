@@ -1,27 +1,24 @@
 <template>
-    <div
-        class="vue-ads-relative"
-    >
-        <div
-            ref="button"
+    <span>
+        <span
+            ref="item"
             @click.stop="click"
             @mouseenter.stop="toggle"
             @mouseleave.stop="toggle"
         >
-            <slot name="button" />
-        </div>
-        <div
+            <slot name="item" />
+        </span>
+        <span
             ref="context"
             @click.stop="clickContext"
             @mouseenter.stop="toggle"
             @mouseleave.stop="toggle"
             :class="contextClasses"
             :style="contextStyles"
-            class="vue-ads-absolute vue-ads-z-50"
         >
             <slot name="context" />
-        </div>
-    </div>
+        </span>
+    </span>
 </template>
 
 <script>
@@ -58,7 +55,7 @@ export default {
     data () {
         return {
             isVisible: this.visible,
-            button: {
+            item: {
                 width: null,
                 height: null,
             },
@@ -73,6 +70,8 @@ export default {
         contextClasses () {
             return {
                 'vue-ads-invisible': this.disable || !this.isVisible,
+                'vue-ads-absolute': true,
+                'vue-ads-z-50': true,
             };
         },
 
@@ -81,11 +80,11 @@ export default {
             let top = 0;
 
             if (this.horizontalPosition.startsWith('middle')) {
-                left += this.button.width / 2;
+                left += this.item.width / 2;
             }
 
             if (this.horizontalPosition.startsWith('right')) {
-                left += this.button.width;
+                left += this.item.width;
             }
 
             if (this.horizontalPosition.endsWith('middle')) {
@@ -97,11 +96,11 @@ export default {
             }
 
             if (this.verticalPosition.startsWith('middle')) {
-                top += this.button.height / 2;
+                top += this.item.height / 2;
             }
 
             if (this.verticalPosition.startsWith('bottom')) {
-                top += this.button.height;
+                top += this.item.height;
             }
 
             if (this.verticalPosition.endsWith('middle')) {
@@ -151,9 +150,9 @@ export default {
         },
 
         calculateDimensions () {
-            let buttonRect = this.$refs.button.childNodes[0].getBoundingClientRect();
-            this.button.width = buttonRect.width;
-            this.button.height = buttonRect.height;
+            let itemRect = this.$refs.item.childNodes[0].getBoundingClientRect();
+            this.item.width = itemRect.width;
+            this.item.height = itemRect.height;
 
             let contextRect = this.$refs.context.childNodes[0].getBoundingClientRect();
             this.context.width = contextRect.width;

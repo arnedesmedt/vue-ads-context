@@ -1,13 +1,13 @@
 <template>
     <div id="app">
         <vue-ads-context
-            :toggle-on-hover="false"
             class="vue-ads-absolute"
             style="left: 267px; top: 456px;"
+            :toggle-on-hover="true"
             horizontal-position="right-right"
             vertical-position="top-bottom"
         >
-            <span slot="button" class="vue-ads-bg-red">Button</span>
+            <span slot="item" class="vue-ads-bg-red">Button</span>
             <span slot="context" class="vue-ads-bg-blue">Context en nog zoveel meer</span>
         </vue-ads-context>
     </div>
