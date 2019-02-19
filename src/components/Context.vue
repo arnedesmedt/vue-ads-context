@@ -8,7 +8,7 @@
             @mouseenter="toggle"
             @mouseleave="toggle"
         >
-            <slot name="button"/>
+            <slot name="button" />
         </div>
         <div
             ref="context"
@@ -16,7 +16,7 @@
             :style="contextStyles"
             class="absolute z-50"
         >
-            <slot name="context"/>
+            <slot name="context" />
         </div>
     </div>
 </template>
