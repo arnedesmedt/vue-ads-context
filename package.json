@@ -12,7 +12,7 @@
     "bugs": {
         "url": "https://github.com/arnedesmedt/vue-ads-context/issues"
     },
-    "version": "0.0.2",
+    "version": "0.1.0",
     "main": "./dist/vue-ads-context.common.js",
     "files": [
         "/dist"
@@ -22,9 +22,9 @@
         "build:bundle": "vue-cli-service build --target lib --name vue-ads-context ./src/index.js",
         "lint": "vue-cli-service lint",
         "package-lint": "prettier-package-json --write --tab-width=4 ./package.json",
-        "serve": "vue-cli-service serve --host localhost",
+        "serve": "vue-cli-service serve",
         "test:unit": "vue-cli-service test:unit",
-        "preversion": "export NODE_ENV=production && npm run lint && npm run package-lint",
+        "preversion": "export NODE_ENV=production && npm run lint && npm run test:unit && npm run package-lint",
         "version": "npm run build:bundle",
         "postversion": "git push && git push --tags"
     },

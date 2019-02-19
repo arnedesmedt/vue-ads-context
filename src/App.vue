@@ -2,13 +2,13 @@
     <div id="app">
         <vue-ads-context
             :toggle-on-hover="true"
-            class="absolute"
+            class="vue-ads-absolute"
             style="left: 267px; top: 456px;"
             horizontal-position="right-right"
             vertical-position="top-bottom"
         >
-            <span slot="button">Button</span>
-            <span slot="context">Context en nog zoveel meer</span>
+            <span slot="button" class="vue-ads-bg-red">Button</span>
+            <span slot="context" class="vue-ads-bg-blue">Context en nog zoveel meer</span>
         </vue-ads-context>
     </div>
 </template>
@@ -25,3 +25,11 @@ export default {
     },
 };
 </script>
+
+<style>
+    body{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+</style>
