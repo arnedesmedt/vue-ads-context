@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <vue-ads-context
-            :toggle-on-hover="true"
+            :toggle-on-hover="false"
             class="vue-ads-absolute"
             style="left: 267px; top: 456px;"
             horizontal-position="right-right"
@@ -27,8 +27,7 @@ export default {
 </script>
 
 <style>
-    body{
-        position: fixed;
+    html,body {
         width: 100%;
         height: 100%;
     }
