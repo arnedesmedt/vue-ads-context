@@ -31,31 +31,26 @@ export default {
     props: {
         visible: {
             type: Boolean,
-            required: false,
             default: false,
         },
 
         disable: {
             type: Boolean,
-            required: false,
             default: false,
         },
 
         toggleOnHover: {
             type: Boolean,
-            required: false,
             default: false,
         },
 
         verticalPosition: {
             type: String,
-            required: false,
             default: 'top-bottom',
         },
 
         horizontalPosition: {
             type: String,
-            required: false,
             default: 'middle-middle',
         },
     },
