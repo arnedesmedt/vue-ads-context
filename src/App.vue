@@ -7,8 +7,8 @@
             horizontal-position="right-right"
             vertical-position="top-bottom"
         >
-            <span slot="item" class="vue-ads-bg-red">Button</span>
-            <span slot="context" class="vue-ads-bg-blue">Context en nog zoveel meer</span>
+            <span slot="item" class="vue-ads-bg-red-500">Button</span>
+            <span slot="context" class="vue-ads-bg-blue-500">Context en nog zoveel meer</span>
         </vue-ads-context>
     </div>
 </template>

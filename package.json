@@ -46,10 +46,10 @@
         "postcss-import": "*",
         "postcss-url": "*",
         "prettier-package-json": "^2.1.0",
-        "tailwindcss": "*",
-        "vue-cli-plugin-ads-package-json": "latest",
-        "vue-cli-plugin-ads-packages": "latest",
-        "vue-cli-plugin-ads-readme": "latest",
+        "tailwindcss": "^1.0.0-beta.4",
+        "vue-cli-plugin-ads-package-json": "^1.0.8",
+        "vue-cli-plugin-ads-packages": "^1.3.13",
+        "vue-cli-plugin-ads-readme": "^1.0.9",
         "vue-template-compiler": "^2.6.10"
     },
     "keywords": [
