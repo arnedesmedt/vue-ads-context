@@ -1,18 +1,18 @@
 <template>
-    <span>
+    <span class="vue-ads-font-sans">
         <span
             ref="item"
             @click.stop="click"
-            @mouseenter.stop="toggle"
-            @mouseleave.stop="toggle"
+            @mouseenter.stop="toggle('item')"
+            @mouseleave.stop="toggle('item')"
         >
             <slot name="item" />
         </span>
         <span
             ref="context"
             @click.stop="clickContext"
-            @mouseenter.stop="toggle"
-            @mouseleave.stop="toggle"
+            @mouseenter.stop="toggle('context')"
+            @mouseleave.stop="toggle('context')"
             :class="contextClasses"
             :style="contextStyles"
         >
@@ -36,9 +36,16 @@ export default {
             default: false,
         },
 
-        toggleOnHover: {
-            type: Boolean,
-            default: false,
+        toggleType: {
+            type: String,
+            default: 'hover',
+            validation: (toggleType) => {
+                return [
+                    'hover',
+                    'click',
+                    'hover-item',
+                ].includes(toggleType);
+            },
         },
 
         verticalPosition: {
@@ -123,8 +130,12 @@ export default {
     },
 
     methods: {
-        toggle () {
-            if (!this.toggleOnHover) {
+        toggle (target) {
+            if (this.toggleType === 'click') {
+                return;
+            }
+
+            if (this.toggleType === 'hover-item' && target === 'context') {
                 return;
             }
 
@@ -132,7 +143,7 @@ export default {
         },
 
         click () {
-            if (this.toggleOnHover) {
+            if (this.toggleType !== 'click') {
                 return;
             }
 

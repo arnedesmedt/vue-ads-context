@@ -3,7 +3,7 @@
         <vue-ads-context
             class="vue-ads-absolute"
             style="left: 267px; top: 456px;"
-            :toggle-on-hover="true"
+            toggle-type="click"
             horizontal-position="right-right"
             vertical-position="top-bottom"
         >
